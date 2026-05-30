@@ -1,0 +1,11 @@
+/* HOInsurance.com — Teal Theme */
+input#saveForm {
+  background-color: #eab308 !important;
+  color: #000000 !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  border: none !important;
+  padding: 12px 24px !important;
+}
+input#saveForm:hover { background-color: #ca8a04 !important; }
+body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif !important; }

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f766e" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="200" height="200" fill="white"/>
+
+  <g transform="translate(100,100)" filter="url(#shadow)">
+    <!-- Hurricane rings -->
+    <circle cx="0" cy="0" r="88" fill="none" stroke="#ccfbf1" stroke-width="8"/>
+    <circle cx="0" cy="0" r="72" fill="none" stroke="#99f6e4" stroke-width="4"/>
+
+    <!-- Hurricane spiral arcs -->
+    <path d="M0,-88 Q76,-80 80,0 Q80,56 44,78" fill="none" stroke="#0d9488" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+    <path d="M0,-88 Q-76,-80 -80,0 Q-80,56 -44,78" fill="none" stroke="#0d9488" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+    <path d="M-52,-68 Q-84,0 -60,60" fill="none" stroke="#eab308" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <path d="M52,-68 Q84,0 60,60" fill="none" stroke="#eab308" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- House body -->
+    <polygon points="0,-30 56,0 56,52 -56,52 -56,0" fill="#0f766e"/>
+
+    <!-- Roof -->
+    <polygon points="0,-52 66,0 -66,0" fill="#eab308"/>
+    <line x1="0" y1="-52" x2="0" y2="0" stroke="#fde047" stroke-width="2" opacity="0.5"/>
+
+    <!-- Door -->
+    <rect x="-13" y="22" width="26" height="30" fill="#065f46" rx="3"/>
+    <circle cx="10" cy="38" r="3" fill="#eab308"/>
+    <path d="M-13 22 Q0 12 13 22" fill="#065f46"/>
+
+    <!-- Windows -->
+    <rect x="-52" y="8" width="20" height="16" fill="#ccfbf1" rx="2"/>
+    <line x1="-42" y1="8" x2="-42" y2="24" stroke="#0f766e" stroke-width="1.5"/>
+    <line x1="-52" y1="16" x2="-32" y2="16" stroke="#0f766e" stroke-width="1.5"/>
+
+    <rect x="32" y="8" width="20" height="16" fill="#ccfbf1" rx="2"/>
+    <line x1="42" y1="8" x2="42" y2="24" stroke="#0f766e" stroke-width="1.5"/>
+    <line x1="32" y1="16" x2="52" y2="16" stroke="#0f766e" stroke-width="1.5"/>
+
+    <!-- Chimney -->
+    <rect x="30" y="-56" width="12" height="20" fill="#0f766e"/>
+    <rect x="28" y="-60" width="16" height="6" fill="#065f46" rx="2"/>
+
+    <!-- Hurricane eye -->
+    <circle cx="0" cy="0" r="7" fill="#eab308"/>
+    <circle cx="0" cy="0" r="3.5" fill="white"/>
+  </g>
+</svg>
