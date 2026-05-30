@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import MarissaWidget from './MarissaWidget'
 
 function JotformModal({ onClose }: { onClose: () => void }) {
   useEffect(() => {
@@ -437,6 +438,7 @@ function App() {
       </section>
 
       {showJotform && <JotformModal onClose={() => setShowJotform(false)} />}
+      <MarissaWidget onLeadCapture={(lead) => console.log('Lead captured:', lead)} />
       {/* Sister Sites Bar */}
       <div className="bg-red-900 py-3 px-4">
         <div className="max-w-5xl mx-auto text-center">
