@@ -20,28 +20,29 @@
   style.textContent = `
     #${WIDGET_ID} * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
-    /* Launcher bubble */
+    /* Launcher pill — impossible to miss */
+    @keyframes pulseRed {
+      0%   { box-shadow: 0 4px 12px rgba(230,57,70,0.5), 0 0 0 0 rgba(230,57,70,0.4); }
+      70%  { box-shadow: 0 4px 12px rgba(230,57,70,0.5), 0 0 0 12px rgba(230,57,70,0); }
+      100% { box-shadow: 0 4px 12px rgba(230,57,70,0.5), 0 0 0 0 rgba(230,57,70,0); }
+    }
     #${WIDGET_ID}-launcher {
       position: fixed; bottom: 24px; right: 24px; z-index: 99998;
-      width: 62px; height: 62px; border-radius: 50%;
-      background: ${BRAND}; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(230,57,70,0.45);
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .2s, box-shadow .2s;
-      border: none; outline: none;
+      background: ${BRAND}; color: #fff;
+      padding: 14px 22px; border-radius: 50px;
+      cursor: pointer; border: none; outline: none;
+      font-weight: 700; font-size: 15px;
+      display: flex; align-items: center; gap: 9px;
+      animation: pulseRed 2s ease-in-out infinite;
+      transition: transform .2s, filter .2s;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
     }
-    #${WIDGET_ID}-launcher:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(230,57,70,0.55); }
-    #${WIDGET_ID}-launcher .avatar-m {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: #fff; color: ${BRAND};
-      font-weight: 800; font-size: 18px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    #${WIDGET_ID}-launcher .notif-dot {
-      position: absolute; top: 4px; right: 4px;
-      width: 14px; height: 14px; border-radius: 50%;
-      background: #22c55e; border: 2px solid #fff;
-    }
+    #${WIDGET_ID}-launcher:hover { transform: scale(1.05); filter: brightness(1.1); animation: none; box-shadow: 0 6px 24px rgba(230,57,70,0.6); }
+    #${WIDGET_ID}-launcher .launcher-icon { font-size: 18px; line-height: 1; }
+    #${WIDGET_ID}-launcher .launcher-text { display: flex; flex-direction: column; line-height: 1.2; }
+    #${WIDGET_ID}-launcher .launcher-text .l-main { font-size: 14px; font-weight: 700; }
+    #${WIDGET_ID}-launcher .launcher-text .l-sub { font-size: 10px; font-weight: 500; opacity: 0.88; }
 
     /* Chat window */
     #${WIDGET_ID} {
@@ -212,8 +213,11 @@
   launcher.id = `${WIDGET_ID}-launcher`;
   launcher.setAttribute('aria-label', 'Chat with Marissa');
   launcher.innerHTML = `
-    <div class="avatar-m">M</div>
-    <div class="notif-dot"></div>
+    <span class="launcher-icon">💬</span>
+    <span class="launcher-text">
+      <span class="l-main">⚡️ Citizens Nonrenewal Help</span>
+      <span class="l-sub">Get quotes in 15 min →</span>
+    </span>
   `;
   document.body.appendChild(launcher);
 
@@ -270,6 +274,7 @@
     isOpen = false;
     widget.classList.remove('open');
     launcher.style.display = 'flex';
+    launcher.style.alignItems = 'center';
   }
   launcher.addEventListener('click', openWidget);
   closeBtn.addEventListener('click', closeWidget);
