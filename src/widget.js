@@ -3,7 +3,7 @@
 
 (function() {
     const WIDGET_ID = 'ai-quote-chat-widget';
-    const API_ENDPOINT = '/api/chat'; // Our new Flask proxy endpoint
+    const API_ENDPOINT = 'https://hooks.citizensnonrenewal.com/api/chat'; // Our new Flask proxy endpoint
 
     function initWidget() {
         let chatContainer = document.getElementById(WIDGET_ID);
