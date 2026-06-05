@@ -108,7 +108,7 @@
                 messagesContainer.lastChild.remove(); // Remove "Typing..."
 
                 if (response.ok) {
-                    const aiReply = data.reply;
+                    const aiReply = data.response;
                     appendMessage('AI', aiReply);
                     conversationHistory.push({ role: 'assistant', content: aiReply });
                 } else {
